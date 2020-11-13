@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { fetchPosts } from '../actions/posts';
 import { PostsList } from './index';
+import propTypes from 'prop-types';
 
 class App extends React.Component {
   componentDidMount() {
@@ -10,6 +11,10 @@ class App extends React.Component {
 
   render() {
     const { posts } = this.props;
+
+    posts.map((post) => {
+      console.log(post);
+    });
 
     return (
       <div>
@@ -24,5 +29,9 @@ function mapStateToProps(state) {
     posts: state.posts,
   };
 }
+
+App.propTypes = {
+  posts: propTypes.array.isRequired,
+};
 
 export default connect(mapStateToProps)(App);
