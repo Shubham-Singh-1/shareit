@@ -100,6 +100,6 @@ export function signupFailed(error) {
 export function signupSuccessful(user) {
   return {
     type: SIGNUP_SUCCESS,
-    user,
+    user, // shorthand for user:user,
   };
 }
