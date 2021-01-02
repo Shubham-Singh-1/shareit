@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+
 import { login } from '../actions/auth';
 
 class Login extends Component {
@@ -12,6 +13,7 @@ class Login extends Component {
       password: '',
     };
   }
+
   handleEmailChange = (e) => {
     this.setState({
       email: e.target.value,
@@ -24,7 +26,7 @@ class Login extends Component {
     });
   };
 
-  handleFormsSubmit = (e) => {
+  handleFormSubmit = (e) => {
     e.preventDefault();
     // console.log('this.emailInputRef', this.emailInputRef);
     // console.log('this.passwordInputRef', this.passwordInputRef);
@@ -56,15 +58,22 @@ class Login extends Component {
           <input
             type="password"
             placeholder="Password"
+            required
             // ref={this.passwordInputRef}
             onChange={this.handlePasswordChange}
             value={this.state.password}
           />
         </div>
         <div className="field">
-          <button onClick={this.handleFormsSubmit} disabled={inProgress}>
-            Log In
-          </button>
+          {inProgress ? (
+            <button onClick={this.handleFormSubmit} disabled={inProgress}>
+              Logging in...
+            </button>
+          ) : (
+            <button onClick={this.handleFormSubmit} disabled={inProgress}>
+              Log In
+            </button>
+          )}
         </div>
       </form>
     );
@@ -76,5 +85,4 @@ function mapStateToProps(state) {
     auth: state.auth,
   };
 }
-
 export default connect(mapStateToProps)(Login);
