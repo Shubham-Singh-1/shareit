@@ -6,6 +6,8 @@ import {
   SIGNUP_START,
   SIGNUP_FAILED,
   SIGNUP_SUCCESS,
+  AUTHENTICATE_USER,
+  LOG_OUT,
 } from './actionTypes';
 import { getFormBody } from '../helpers/utils';
 
@@ -101,5 +103,18 @@ export function signupSuccessful(user) {
   return {
     type: SIGNUP_SUCCESS,
     user, // shorthand for user:user,
+  };
+}
+
+export function authenticateUser(user) {
+  return {
+    type: AUTHENTICATE_USER,
+    user,
+  };
+}
+
+export function logout() {
+  return {
+    type: LOG_OUT,
   };
 }
