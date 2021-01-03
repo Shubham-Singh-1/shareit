@@ -113,7 +113,7 @@ export function authenticateUser(user) {
   };
 }
 
-export function logout() {
+export function logoutUser() {
   return {
     type: LOG_OUT,
   };
