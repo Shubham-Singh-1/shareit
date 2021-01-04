@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 import { fetchPosts } from '../actions/posts';
 import { Home, Navbar, Page404, Login, Signup } from './';
 import jwt_decode from 'jwt-decode';
-import { authenticateUser } from '../actions/auth';
+import { authenticateUser, clearAuthState } from '../actions/auth';
 
 class App extends React.Component {
   componentDidMount() {
