@@ -12,8 +12,6 @@ import { Home, Navbar, Page404, Login, Signup, Settings } from './';
 import jwt_decode from 'jwt-decode';
 import { authenticateUser } from '../actions/auth';
 
-// const Settings = () => <div>Settings</div>;
-
 const PrivateRoute = (privateRouteProps) => {
   // declaring a component as function
   const { path, isLoggedin, component: Component } = privateRouteProps;
@@ -22,7 +20,18 @@ const PrivateRoute = (privateRouteProps) => {
     <Route
       path={path}
       render={(props) => {
-        return isLoggedin ? <Component {...props} /> : <Redirect to="/login" />;
+        return isLoggedin ? (
+          <Component {...props} />
+        ) : (
+          <Redirect
+            to={{
+              pathname: '/login',
+              state: {
+                from: props.location,
+              },
+            }}
+          />
+        );
       }}
     />
   );
