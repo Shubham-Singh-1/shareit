@@ -8,7 +8,15 @@ import {
 } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { fetchPosts } from '../actions/posts';
-import { Home, Navbar, Page404, Login, Signup, Settings } from './';
+import {
+  Home,
+  Navbar,
+  Page404,
+  Login,
+  Signup,
+  Settings,
+  UserProfile,
+} from './';
 import jwt_decode from 'jwt-decode';
 import { authenticateUser } from '../actions/auth';
 import { getAuthTokenFromLocalStorage } from '../helpers/utils';
@@ -92,8 +100,8 @@ class App extends React.Component {
               isLoggedin={auth.isLoggedin}
             />
             <PrivateRoute
-              path="/user"
-              component={userProfile}
+              path="/user/:userId"
+              component={UserProfile}
               isLoggedin={auth.isLoggedin}
             />
             <Route component={Page404} />
