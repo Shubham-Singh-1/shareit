@@ -145,7 +145,7 @@ export function editUserFailed(error) {
 
 export function editUser(name, password, confirmPassword, userId) {
   return (dispatch) => {
-    const url = APIUrls.editProfile;
+    const url = APIUrls.editProfile();
     fetch(url, {
       method: 'POST',
       headers: {
@@ -161,7 +161,7 @@ export function editUser(name, password, confirmPassword, userId) {
     })
       .then((response) => response.json())
       .then((data) => {
-        console.log('data', data);
+        console.log('Edit Profile data', data);
         if (data.success) {
           dispatch(editUserSuccessful(data.data.user));
           if (data.data.token) {
