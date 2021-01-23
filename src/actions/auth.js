@@ -80,7 +80,6 @@ export function signup(email, password, confirmPassword, name) {
       .then((data) => {
         // console.log('data', data);
         if (data.success) {
-          // do something
           localStorage.setItem('token', data.data.token);
           dispatch(signupSuccessful(data.data.user));
           return;
