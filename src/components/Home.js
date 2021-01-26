@@ -3,11 +3,12 @@ import { PostsList } from './';
 
 class Home extends Component {
   render() {
-    const { posts } = this.props;
+    const { posts, friends, isLoggedin } = this.props;
 
     return (
       <div className="home">
         <PostsList posts={posts} />
+        {isLoggedin && <FriendsList friends={friends} />}
       </div>
     );
   }
