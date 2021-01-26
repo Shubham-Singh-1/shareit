@@ -12,6 +12,20 @@ class UserProfile extends Component {
     }
   }
 
+  checkIfUserIsAFriend = () => {
+    console.log('this.props', this.props);
+
+    const { match, friends } = this.props;
+    const userId = match.params.userId;
+
+    const index = friends.map((friend) => friends.to_user._id).indexOf(userId);
+
+    if (index != -1) {
+      return true;
+    }
+    return false;
+  };
+
   render() {
     const {
       match: { params },
@@ -24,6 +38,8 @@ class UserProfile extends Component {
     if (profile.inProgress) {
       return <h1>Loading...</h1>;
     }
+
+    const isUserAFriend = this.checkIfUserIsAFriend();
 
     return (
       <div className="settings">
@@ -52,9 +68,10 @@ class UserProfile extends Component {
   }
 }
 
-function mapStateToProps({ profile }) {
+function mapStateToProps({ profile, friends }) {
   return {
     profile,
+    friends,
   };
 }
 
