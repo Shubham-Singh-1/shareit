@@ -40,8 +40,11 @@ export function fetchUserProfile(userId) {
     })
       .then((response) => response.json())
       .then((data) => {
-        dispatch(userProfileSuccess(data.data.user));
-        return;
+        if (data.success) {
+          dispatch(userProfileSuccess(data.data.user));
+          return;
+        }
+        dispatch(userProfileFailed(data.message));
       });
   };
 }
