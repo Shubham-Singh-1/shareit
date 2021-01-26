@@ -20,7 +20,7 @@ class UserProfile extends Component {
 
     const index = friends.map((friend) => friends.to_user._id).indexOf(userId);
 
-    if (index != -1) {
+    if (index !== -1) {
       return true;
     }
     return false;
@@ -61,6 +61,11 @@ class UserProfile extends Component {
         </div>
 
         <div className="btn-grp">
+          {!isUserAFriend ? (
+            <button className="button save-btn">Add Friend</button>
+          ) : (
+            <button className="button save-btn">Remove Friend</button>
+          )}
           <button className="button save-btn">Add Friend</button>
         </div>
       </div>
