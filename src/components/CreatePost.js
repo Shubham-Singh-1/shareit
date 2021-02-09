@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { createPost } from '../actions/posts';
 
 class CreatePost extends Component {
   constructor(props) {
@@ -9,13 +11,14 @@ class CreatePost extends Component {
   }
 
   handleOnClick = () => {
-      //dispatch an action to create post
-  }
+    //dispatch an action to create post
+    this.props.dispatch(createPost(this.state.content));
+  };
 
   handleChange = (e) => {
-      this.setState({
-          content = e.target.value
-      })
+    this.setState({
+      content: e.target.value,
+    });
   };
 
   render() {
@@ -27,10 +30,17 @@ class CreatePost extends Component {
           onChange={this.handleChange}
         />
 
-        <button id="add-post-btn" onClick={this.handleOnClick}>Add Post</button>
+        <button id="add-post-btn" onClick={this.handleOnClick}>
+          Add Post
+        </button>
       </div>
     );
   }
 }
 
-export default CreatePost;
+function mapStateToProps({ posts }) {
+  return {
+    posts,
+  };
+}
+export default connect(mapStateToProps)(CreatePost);
