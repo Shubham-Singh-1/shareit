@@ -39,7 +39,7 @@ export function addPost(post) {
 
 export function createPost(content) {
   return (dispatch) => {
-    const url = APIUrls.createPost;
+    const url = APIUrls.createPost();
 
     fetch(url, {
       method: 'POST',
