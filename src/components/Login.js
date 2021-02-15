@@ -48,7 +48,7 @@ class Login extends Component {
     const { from } = this.props.location.state || { from: { pathname: '/' } };
 
     if (isLoggedin) {
-      return <Redirect to={from} />;
+      return <Redirect to={from} />; // if user is logged in already
     }
     return (
       <form className="login-form">
