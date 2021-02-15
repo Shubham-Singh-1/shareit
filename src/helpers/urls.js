@@ -19,5 +19,3 @@ export const APIUrls = {
     `${API_ROOT}/likes/toggle?likeable_id=${id}&likeable_type=${likeType}`,
   userSearch: (searchText) => `${API_ROOT}/users/search?text=${searchText}`,
 };
-
-// http://codeial.codingninjas.com:5000/ {for web sockets}
