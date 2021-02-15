@@ -1,4 +1,4 @@
-const API_ROOT = 'http://codeial.com:8000/api/v2';
+const API_ROOT = 'http://codeial.codingninjas.com:8000/api/v2';
 
 export const APIUrls = {
   login: () => `${API_ROOT}/users/login`,
@@ -10,7 +10,7 @@ export const APIUrls = {
   userProfile: (userId) => `${API_ROOT}/users/${userId}`,
   userFriends: (userId) => `${API_ROOT}/friendship/fetch_user_friends`,
   addFriend: (userId) =>
-    `${API_ROOT}friendship/create_friendship?user_id=${userId}`,
+    `${API_ROOT}/friendship/create_friendship?user_id=${userId}`,
   removeFriend: (userId) =>
     `${API_ROOT}/friendship/remove_friendship?user_id=${userId}`,
   createPost: () => `${API_ROOT}/posts/create`,
@@ -19,3 +19,5 @@ export const APIUrls = {
     `${API_ROOT}/likes/toggle?likeable_id=${id}&likeable_type=${likeType}`,
   userSearch: (searchText) => `${API_ROOT}/users/search?text=${searchText}`,
 };
+
+// http://codeial.codingninjas.com:5000/ {for web sockets}

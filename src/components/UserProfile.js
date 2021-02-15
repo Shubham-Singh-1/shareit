@@ -24,7 +24,7 @@ class UserProfile extends Component {
     }
   }
 
-  ccomponentDidUpdate(prevProps) {
+  componentDidUpdate(prevProps) {
     const {
       match: { params: prevParams },
     } = prevProps;
