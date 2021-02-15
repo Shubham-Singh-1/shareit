@@ -1,4 +1,4 @@
-This project completely user ReactJS.It is build using the APIs of soceial.
+#### This project completely uses ReactJS.It is build using the APIs of soceial.
 
 # Getting Started with Create React App
 
