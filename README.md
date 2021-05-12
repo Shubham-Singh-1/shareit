@@ -1,4 +1,4 @@
-#### This project completely uses ReactJS.It is build using the APIs of [I'm an inline-style link](https://github.com/Shubham-Singh-1/soceial).
+#### This project completely uses ReactJS.It is build using the APIs of [soceial](https://github.com/Shubham-Singh-1/soceial).
 
 # Getting Started with Create React App
 
